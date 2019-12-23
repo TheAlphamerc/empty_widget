@@ -22,7 +22,7 @@ class EmptyListWidget extends StatefulWidget{
   State<StatefulWidget> createState() => _EmptyListWidgetState();
 }
 class _EmptyListWidgetState extends State<EmptyListWidget> with TickerProviderStateMixin{
-  String title, subTitle,image = 'emptyImage.png';
+  String title, subTitle,image = 'assets/images/emptyImage.png';
 
    AnimationController   _backgroundController;
    AnimationController   _widgetController;
@@ -43,7 +43,7 @@ class _EmptyListWidgetState extends State<EmptyListWidget> with TickerProviderSt
   void initState() {
      title = widget.title  ;
      subTitle = widget.subTitle;
-     image = widget.image ??  'emptyImage.png';
+     image = widget.image ??  'assets/images/emptyImage.png';
      _backgroundController = AnimationController(duration: const Duration(minutes: 1),vsync: this,lowerBound: 0,upperBound: 20)..repeat();
      _widgetController = AnimationController(duration: const Duration(seconds: 1),vsync: this,lowerBound: 0,upperBound: 1)..forward();
      _imageController = AnimationController(duration: const Duration(seconds: 4),vsync: this,)..repeat();
@@ -78,7 +78,7 @@ class _EmptyListWidgetState extends State<EmptyListWidget> with TickerProviderSt
          child: child
        );
      },
-     child: Image.asset('assets/images/$image',height: getHeightDimention(context, 170)),
+     child: Image.asset(image,height: getHeightDimention(context, 170)),
    );
    
   }
@@ -98,26 +98,6 @@ class _EmptyListWidgetState extends State<EmptyListWidget> with TickerProviderSt
           ),
         );  
   }
-  // Widget _bubbles(){
-  //     Animation<RelativeRect> rectAnimation = new RelativeRectTween(
-  //   begin: new RelativeRect.fromLTRB((_imageAnimation.value), 20, 0.0, 0.0),
-  //   end: new RelativeRect.fromLTRB(0.0, 0.0, (_imageAnimation.value), 20),
-  // ).animate(_backgroundController);
-  //   return PositionedTransition(
-  //     rect: rectAnimation,
-  //      child: Container(
-  //       alignment: Alignment.bottomRight,
-  //        child: Container(
-  //           height: 50,
-  //           width: 50,
-  //            decoration: BoxDecoration(
-  //               color: Colors.grey.shade400,
-  //               shape: BoxShape.circle
-  //            ),
-  //        ),
-  //     ),
-  //   );
-  // }
   double getHeightDimention(BuildContext context,double unit){
    if(fullHeight(context) <= 460.0){
     return unit / 1.5;

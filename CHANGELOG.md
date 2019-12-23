@@ -4,5 +4,8 @@
 
   * empty widget added
   
-##0.0.1-dev.2
+## 0.0.1-dev.2
   * changelog updated
+
+## 0.0.1-dev.3
+  * add image assets
