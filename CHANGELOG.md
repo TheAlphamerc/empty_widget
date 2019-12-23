@@ -9,3 +9,6 @@
 
 ## 0.0.1-dev.3
   * add image assets
+
+## 0.0.1-dev.4
+  * add demo example
