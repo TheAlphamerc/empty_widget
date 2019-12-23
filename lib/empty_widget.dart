@@ -1,15 +1,7 @@
 library empty_widget;
-
-/// A Calculator.
-// class Calculator {
-//   /// Returns [value] plus 1.
-//   int addOne(int value) => value + 1;
-// }
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-
-// import '../customWidgets.dart';
 
 class EmptyListWidget extends StatefulWidget{
   EmptyListWidget({ @required this.title, @required this.subTitle,@required this.image});
@@ -25,13 +17,10 @@ class _EmptyListWidgetState extends State<EmptyListWidget> with TickerProviderSt
   String title, subTitle,image = 'assets/images/emptyImage.png';
 
    AnimationController   _backgroundController;
-   AnimationController   _widgetController;
-   AnimationController   _imageController;
    Animation _imageAnimation;
-  //  Animation<RelativeRect> _rect =  RelativeRectTween(
-  //   begin: new RelativeRect.fromLTRB(0.0, 0, 0.0, 0.0),
-  //   end: new RelativeRect.fromLTRB(0.0, 0.0, 0.0, 0.0),
-  // );
+   AnimationController   _imageController;
+   AnimationController   _widgetController;
+
    @override
   void dispose() {
       _backgroundController.dispose();
@@ -52,6 +41,7 @@ class _EmptyListWidgetState extends State<EmptyListWidget> with TickerProviderSt
 
     super.initState();
   }
+
   animationListner(){
     if(_imageController == null){
       return ;
@@ -67,6 +57,7 @@ class _EmptyListWidgetState extends State<EmptyListWidget> with TickerProviderSt
       });
     }
   }
+
   Widget _emptyListimage(){
     
    return  
@@ -82,15 +73,14 @@ class _EmptyListWidgetState extends State<EmptyListWidget> with TickerProviderSt
    );
    
   }
+
   Widget _imageBackground(){
      return 
      Container(
           width: getHeightDimention(context,fullWidth(context) * .95),
           height: getHeightDimention(context,fullWidth(context) * .95),
           decoration: BoxDecoration(
-            // color: Color(0xfff1f3f6),
             boxShadow: <BoxShadow>[
-              // BoxShadow(blurRadius: 50,offset: Offset(0, 0),color: Color(0xffe2e5ed),spreadRadius:20),
               BoxShadow(offset: Offset(0, 0),color:Color(0xffe2e5ed),),
               BoxShadow(blurRadius:30,offset: Offset(20,0),color: Color(0xffffffff),spreadRadius:-5),
             ],
@@ -98,6 +88,7 @@ class _EmptyListWidgetState extends State<EmptyListWidget> with TickerProviderSt
           ),
         );  
   }
+
   double getHeightDimention(BuildContext context,double unit){
    if(fullHeight(context) <= 460.0){
     return unit / 1.5;
@@ -106,6 +97,25 @@ class _EmptyListWidgetState extends State<EmptyListWidget> with TickerProviderSt
     return getDimention(context, unit);
   }
   }
+
+  double fullHeight(BuildContext context) {
+    return MediaQuery.of(context).size.height;
+  } 
+
+ double getDimention(context, double unit){
+    if(fullWidth(context) <= 360.0){
+      return unit / 1.3;
+    }
+    else {
+      return unit;
+    }
+  
+  }
+
+  double fullWidth(BuildContext context) {
+      return MediaQuery.of(context).size.width;
+  } 
+
   @override
   Widget build(BuildContext context) {
    return  FadeTransition(
@@ -116,8 +126,6 @@ class _EmptyListWidgetState extends State<EmptyListWidget> with TickerProviderSt
          child: Stack(
           alignment: Alignment.center,
           children: <Widget>[
-            // _bubbles(),
-            // _wava(),
             RotationTransition(
               child: _imageBackground(),
               turns: _backgroundController,
@@ -136,20 +144,5 @@ class _EmptyListWidgetState extends State<EmptyListWidget> with TickerProviderSt
     ),
    );
   }
-  double fullHeight(BuildContext context) {
-    return MediaQuery.of(context).size.height;
-  } 
- double getDimention(context, double unit){
-    if(fullWidth(context) <= 360.0){
-      return unit / 1.3;
-    }
-    else {
-      return unit;
-    }
-  
-  }
-  double fullWidth(BuildContext context) {
-      return MediaQuery.of(context).size.width;
-  } 
 }
 
