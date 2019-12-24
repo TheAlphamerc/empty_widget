@@ -111,6 +111,10 @@ Text style of Title
 #### subtitleTextStyle
 Text style of Subtitle
 
+## Download App
+<a href="https://github.com/TheAlphamerc/empty_widget/releases/download/v0.0.1/app-release.apk"><img src="https://playerzon.com/asset/download.png" width="200"></img></a>
+
+
 ## Credits
 Developed by sonu.sharma045@gmail.com
 
