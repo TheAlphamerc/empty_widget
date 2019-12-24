@@ -1,8 +1,11 @@
 ## empty_Widget  [![pub package](https://img.shields.io/pub/v/empty_widget?color=blue)](https://pub.dev/packages/empty_widget)
 
+Screenshots               |  Screenshots
+:-------------------------:|:-------------------------:
+![](https://github.com/TheAlphamerc/empty_widget/blob/master/screenshots/screen1.jpg?raw=true)  |  ![](https://github.com/TheAlphamerc/empty_widget/blob/master/screenshots/screen2.jpg?raw=true)
+![](https://github.com/TheAlphamerc/empty_widget/blob/master/screenshots/screen3.jpg?raw=true)  |  ![](https://github.com/TheAlphamerc/empty_widget/blob/master/screenshots/screen4.jpg?raw=true)
+
 ### 1. Add library to your pubspec.yaml
-
-
 
 ```yaml
 dependencies:

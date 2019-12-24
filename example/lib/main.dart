@@ -38,7 +38,7 @@ class _MyHomePageState extends State<MyHomePage> {
             width:350,
           child:  EmptyListWidget(
             image : null,
-            packageImage: PackageImage.Image_4,
+            packageImage: PackageImage.Image_1,
             title: 'Title here',
             subTitle: 'Some text  here',
             titleTextStyle: Theme.of(context).typography.dense.display1.copyWith(color: Color(0xff9da9c7)),

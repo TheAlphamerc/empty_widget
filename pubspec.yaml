@@ -1,6 +1,6 @@
 name: empty_widget
-description: Custom_Empty widget is developed to show on custom empty widget when there is no data available i.e in place of empty list
-version: 0.0.1-dev.4
+description: Custom_Empty widget is developed to show  custom empty widget when there is no data available to show on screen i.e in place of empty list
+version: 0.0.1
 author: Sonu Sharma <sonu.sharma045@gmail.com>
 homepage: https://github.com/TheAlphamerc/empty_widget
 

@@ -12,3 +12,9 @@
 
 ## 0.0.1-dev.4
   * add demo example
+
+## 0.0.1
+  * Add default images in package
+  * Add title text style
+  * add Subtitle text style
+  
