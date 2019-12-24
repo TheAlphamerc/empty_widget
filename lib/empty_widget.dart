@@ -1,24 +1,35 @@
 library empty_widget;
+export 'src/images.dart';
 import 'dart:math';
-
+import 'package:empty_widget/src/helper.dart';
+import 'package:empty_widget/src/images.dart';
+import 'package:empty_widget/src/utility.dart';
 import 'package:flutter/material.dart';
 
 class EmptyListWidget extends StatefulWidget{
-  EmptyListWidget({ @required this.title, @required this.subTitle,@required this.image});
+  EmptyListWidget({ this.title,  this.subTitle,this.image,this.subtitleTextStyle,this.titleTextStyle,this.packageImage});
 
   final String image ;
+  final PackageImage packageImage;
   final String subTitle;
+  final TextStyle subtitleTextStyle;
   final String title;
+  final TextStyle titleTextStyle;
 
   @override
   State<StatefulWidget> createState() => _EmptyListWidgetState();
 }
 class _EmptyListWidgetState extends State<EmptyListWidget> with TickerProviderStateMixin{
-  String title, subTitle,image = 'assets/images/emptyImage.png';
+  // String title, subTitle,image = 'assets/images/emptyImage.png';
 
    AnimationController   _backgroundController;
+
+   String _image ;
    Animation _imageAnimation;
    AnimationController   _imageController;
+   PackageImage _packageImage;
+   TextStyle _subtitleTextStyle;
+   TextStyle _titleTextStyle;
    AnimationController   _widgetController;
 
    @override
@@ -30,15 +41,10 @@ class _EmptyListWidgetState extends State<EmptyListWidget> with TickerProviderSt
 
   @override
   void initState() {
-     title = widget.title  ;
-     subTitle = widget.subTitle;
-     image = widget.image ??  'assets/images/emptyImage.png';
      _backgroundController = AnimationController(duration: const Duration(minutes: 1),vsync: this,lowerBound: 0,upperBound: 20)..repeat();
      _widgetController = AnimationController(duration: const Duration(seconds: 1),vsync: this,lowerBound: 0,upperBound: 1)..forward();
      _imageController = AnimationController(duration: const Duration(seconds: 4),vsync: this,)..repeat();
      _imageAnimation = Tween<double>(begin: 0, end: 10).animate(CurvedAnimation(parent: _imageController,curve: Curves.linear), );
-   
-
     super.initState();
   }
 
@@ -58,18 +64,42 @@ class _EmptyListWidgetState extends State<EmptyListWidget> with TickerProviderSt
     }
   }
 
-  Widget _emptyListimage(){
-    
+  Widget _imageWidget(){
+    bool isPackageImage = false;
+    if(widget.image != null){
+      _image = widget.image;
+    }
+    else if(_packageImage != null){
+      isPackageImage = true;
+      switch (_packageImage) {
+        case PackageImage.Image_1: _image = 'assets/images/emptyImage.png';break;
+        case PackageImage.Image_2: _image = 'assets/images/im_emptyIcon_1.png';break;
+        case PackageImage.Image_3: _image = 'assets/images/im_emptyIcon_2.png';break;
+        case PackageImage.Image_4: _image = 'assets/images/im_emptyIcon_3.png';break;
+        default:  _image = 'assets/images/emptyImage.png';break;
+      }
+    }
+    else{
+      isPackageImage = true;
+      _image = 'assets/images/emptyImage.png';
+    }
+   
    return  
-   AnimatedBuilder(
-     animation: _imageAnimation,
-     builder: (BuildContext context,Widget child){
-       return Transform.translate(
-         offset: Offset(0, sin( _imageAnimation.value >.9 ? 1 -  _imageAnimation.value : _imageAnimation.value)),
-         child: child
-       );
-     },
-     child: Image.asset(image,height: getHeightDimention(context, 170)),
+   Expanded(
+     flex: 3,
+     child: AnimatedBuilder(
+       animation: _imageAnimation,
+       builder: (BuildContext context,Widget child){
+         return Transform.translate(
+           offset: Offset(0, sin( _imageAnimation.value >.9 ? 1 -  _imageAnimation.value : _imageAnimation.value)),
+           child: child
+         );
+       },
+      child: Padding(
+              padding:EdgeInsets.all(10),
+              child:  Image.asset(_image ,fit: BoxFit.contain,package: isPackageImage ? 'empty_widget' : null,) 
+            )
+     ),
    );
    
   }
@@ -77,8 +107,8 @@ class _EmptyListWidgetState extends State<EmptyListWidget> with TickerProviderSt
   Widget _imageBackground(){
      return 
      Container(
-          width: getHeightDimention(context,fullWidth(context) * .95),
-          height: getHeightDimention(context,fullWidth(context) * .95),
+          width: EmptyWidgetUtility.getHeightDimention(context,EmptyWidgetUtility.fullWidth(context) * .95),
+          height: EmptyWidgetUtility.getHeightDimention(context,EmptyWidgetUtility.fullWidth(context) * .95),
           decoration: BoxDecoration(
             boxShadow: <BoxShadow>[
               BoxShadow(offset: Offset(0, 0),color:Color(0xffe2e5ed),),
@@ -89,60 +119,74 @@ class _EmptyListWidgetState extends State<EmptyListWidget> with TickerProviderSt
         );  
   }
 
-  double getHeightDimention(BuildContext context,double unit){
-   if(fullHeight(context) <= 460.0){
-    return unit / 1.5;
-  }
-  else {
-    return getDimention(context, unit);
-  }
-  }
-
-  double fullHeight(BuildContext context) {
-    return MediaQuery.of(context).size.height;
-  } 
-
- double getDimention(context, double unit){
-    if(fullWidth(context) <= 360.0){
-      return unit / 1.3;
-    }
-    else {
-      return unit;
-    }
-  
+  Widget _shell({Widget child}){
+    return LayoutBuilder(
+      builder: (BuildContext context, BoxConstraints constraints) {
+        if(constraints.maxHeight > constraints.maxWidth) {
+          return Container(
+            height:  constraints.maxWidth,
+            width: constraints.maxWidth,
+            child: child,
+          );
+        } else {
+          return child;
+        }
+      });
   }
 
-  double fullWidth(BuildContext context) {
-      return MediaQuery.of(context).size.width;
-  } 
+  Widget _shellChild(){
+    _titleTextStyle = widget.titleTextStyle ?? Theme.of(context).typography.dense.display1.copyWith(color: Color(0xff9da9c7));
+    _subtitleTextStyle = widget.subtitleTextStyle ?? Theme.of(context).typography.dense.body2.copyWith(color: Color(0xffabb8d6));
+    _packageImage = widget.packageImage ;
+     
+    return  FadeTransition(
+    opacity: _widgetController,
+    child:  Container(
+      alignment: Alignment.center,
+      color: Colors.transparent,
+      child:Stack(
+        alignment: Alignment.center,
+        children: <Widget>[
+         RotationTransition(
+           child: _imageBackground(),
+           turns: _backgroundController,
+         ),
+        LayoutBuilder(
+           builder: (BuildContext context, BoxConstraints constraints) {
+             return  Container(
+               height: constraints.maxWidth,
+               width: constraints.maxWidth - 30,
+               alignment: Alignment.center,
+               padding: EdgeInsets.all(10),
+               child: 
+                 Column(
+                 mainAxisAlignment: MainAxisAlignment.center,
+                 mainAxisSize: MainAxisSize.min,
+                 children: <Widget>[
+                   Expanded(flex: 1,child: Container(),),
+                  _imageWidget(),
+                 Column(
+                   children: <Widget>[
+                     CustomText(msg: widget.title,style: _titleTextStyle,context: context,overflow: TextOverflow.clip,textAlign: TextAlign.center,),
+                     SizedBox(height: 10,),
+                     CustomText(msg: widget.subTitle,style: _subtitleTextStyle,context: context,overflow: TextOverflow.clip,textAlign: TextAlign.center)
+                   ],
+                  ),
+                 Expanded(flex: 1,child: Container(),)
+              ],
+              ) ,
+             );
+           }),
+       ],)
+    ),
+   );
+  }
 
   @override
   Widget build(BuildContext context) {
-   return  FadeTransition(
-     opacity: _widgetController,
-     child:  Container(
-     color: Color(0xfffafafa),
-       child:Center(
-         child: Stack(
-          alignment: Alignment.center,
-          children: <Widget>[
-            RotationTransition(
-              child: _imageBackground(),
-              turns: _backgroundController,
-            ),
-           Column(
-             mainAxisAlignment: MainAxisAlignment.center,
-             children: <Widget>[
-              _emptyListimage(),
-               SizedBox(height: 20,),
-               Text(title,style: Theme.of(context).typography.dense.display1.copyWith(color: Color(0xff9da9c7))),
-               Text(subTitle,style: Theme.of(context).typography.dense.body2.copyWith(color: Color(0xffabb8d6)),),
-           ],) ,
-           
-        ],)
-       )
-    ),
-   );
+    return _shell(
+      child: _shellChild()
+    );
   }
 }
 
