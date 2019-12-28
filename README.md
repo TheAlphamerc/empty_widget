@@ -1,10 +1,6 @@
-## empty_Widget  [![pub package](https://img.shields.io/pub/v/empty_widget?color=blue)](https://pub.dev/packages/empty_widget)
+## empty_Widget  [![pub package](https://img.shields.io/pub/v/empty_widget?color=blue)](https://pub.dev/packages/empty_widget) [![GitHub stars](https://img.shields.io/github/stars/Thealphamerc/empty_widget?style=social)](https://github.com/login?return_to=%2FTheAlphamerc%2Fempty_widget)
 
-Screenshots               |  Screenshots
-:-------------------------:|:-------------------------:
-![](https://github.com/TheAlphamerc/empty_widget/blob/master/screenshots/screen1.jpg?raw=true)  |  ![](https://github.com/TheAlphamerc/empty_widget/blob/master/screenshots/screen2.jpg?raw=true)
-![](https://github.com/TheAlphamerc/empty_widget/blob/master/screenshots/screen3.jpg?raw=true)  |  ![](https://github.com/TheAlphamerc/empty_widget/blob/master/screenshots/screen4.jpg?raw=true)
-
+## Getting Started
 ### 1. Add library to your pubspec.yaml
 
 ```yaml
@@ -19,6 +15,15 @@ dependencies:
 ```dart
 import 'package:empty_widget.dart';
 ```
+
+Add image to assets.
+
+```yaml
+flutter:
+  assets:
+    - assets/images/userIcon.png
+```
+
 
 ### 3. Use of EmptyListWidget
 
@@ -120,5 +125,13 @@ Developed by sonu.sharma045@gmail.com
 
 ## Contributing
 Feel free to help
+
+## Screenshots
+
+Screenshots               |  Screenshots
+:-------------------------:|:-------------------------:
+![](https://github.com/TheAlphamerc/empty_widget/blob/master/screenshots/screen1.jpg?raw=true)  |  ![](https://github.com/TheAlphamerc/empty_widget/blob/master/screenshots/screen2.jpg?raw=true)
+![](https://github.com/TheAlphamerc/empty_widget/blob/master/screenshots/screen3.jpg?raw=true)  |  ![](https://github.com/TheAlphamerc/empty_widget/blob/master/screenshots/screen4.jpg?raw=true)
+
 
 
