@@ -128,10 +128,9 @@ Feel free to help
 
 ## Screenshots
 
-Screenshots               |  Screenshots  |  Screenshots
-:-------------------------:|:-------------------------:|:-------------------------:
-![](https://github.com/TheAlphamerc/empty_widget/blob/master/screenshots/screen1.jpg?raw=true)|![](https://github.com/TheAlphamerc/empty_widget/blob/master/screenshots/screen2.jpg?raw=true)|![](https://github.com/TheAlphamerc/empty_widget/blob/master/screenshots/screen3.jpg?raw=true) 
-|![](https://github.com/TheAlphamerc/empty_widget/blob/master/screenshots/screen4.jpg?raw=true)
+Screenshots               |  Screenshots  |  Screenshots |  Screenshots
+:-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
+![](https://github.com/TheAlphamerc/empty_widget/blob/master/screenshots/screen1.jpg?raw=true)|![](https://github.com/TheAlphamerc/empty_widget/blob/master/screenshots/screen2.jpg?raw=true)|![](https://github.com/TheAlphamerc/empty_widget/blob/master/screenshots/screen3.jpg?raw=true) |![](https://github.com/TheAlphamerc/empty_widget/blob/master/screenshots/screen4.jpg?raw=true)
 
 
 
