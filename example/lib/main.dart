@@ -9,7 +9,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-         primarySwatch: Colors.blue,
+        primarySwatch: Colors.blue,
       ),
       home: MyHomePage(title: 'Empty widget demo'),
     );
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
 
- final String title;
+  final String title;
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
@@ -33,19 +33,25 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-        child: Container(
-            height: 500,
-            width:350,
-          child:  EmptyListWidget(
-            image : null,
+          child: Container(
+        height: 500,
+        width: 350,
+        child: EmptyListWidget(
+            image: null,
             packageImage: PackageImage.Image_1,
             title: 'Title here',
             subTitle: 'Some text  here',
-            titleTextStyle: Theme.of(context).typography.dense.display1.copyWith(color: Color(0xff9da9c7)),
-            subtitleTextStyle: Theme.of(context).typography.dense.body2.copyWith(color: Color(0xffabb8d6))
-         ),
-        )
-      ),
+            titleTextStyle: Theme.of(context)
+                .typography
+                .dense
+                .headline5
+                .copyWith(color: Color(0xff9da9c7)),
+            subtitleTextStyle: Theme.of(context)
+                .typography
+                .dense
+                .bodyText1
+                .copyWith(color: Color(0xffabb8d6))),
+      )),
     );
   }
 }
