@@ -32,10 +32,8 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Center(
-          child: Container(
-        height: 500,
-        width: 350,
+      body: Container(
+        alignment: Alignment.center,
         child: EmptyListWidget(
             image: null,
             packageImage: PackageImage.Image_1,
@@ -51,7 +49,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 .dense
                 .bodyText1
                 .copyWith(color: Color(0xffabb8d6))),
-      )),
+      ),
     );
   }
 }
