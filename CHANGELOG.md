@@ -1,20 +1,23 @@
-# Changelog
-
-## 0.0.1-dev.1
-
-  * empty widget added
+## [0.0.1-hotfix] 12 Apr 2021
+  * Dispose Tiker automatically on widget dispose
   
-## 0.0.1-dev.2
-  * changelog updated
-
-## 0.0.1-dev.3
-  * add image assets
-
-## 0.0.1-dev.4
-  * add demo example
-
-## 0.0.1
+## [0.0.1] 24 Dec 2019
   * Add default images in package
   * Add title text style
   * add Subtitle text style
+
+## [0.0.1-dev.4] 23 Dec 2019
+  * add demo example
+
+## [0.0.1-dev.3] 23 Dec 2019
+  * add image assets
+  
+## [0.0.1-dev.2] 23 Dec 2019
+  * changelog updated
+
+## [0.0.1-dev.1] 23 Dec 2019
+
+  * empty widget added
+  
+
   
