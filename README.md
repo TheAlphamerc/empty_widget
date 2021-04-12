@@ -6,7 +6,7 @@
 ```yaml
 dependencies:
 ...
-  empty_widget: ^0.0.1-dev.1 # such as version, you need use the latest version of pub.
+  empty_widget: ^0.0.1-hotfix # such as version, you need use the latest version of pub.
 ...
 ```
 
