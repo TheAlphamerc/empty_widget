@@ -1,3 +1,7 @@
+## [0.0.2] 18 Apr 2021 
+ * Add code documentation
+ * Code refactor
+
 ## [0.0.1-hotfix] 12 Apr 2021
   * Dispose Tiker automatically on widget dispose
   
