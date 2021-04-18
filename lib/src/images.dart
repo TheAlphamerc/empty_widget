@@ -1,3 +1,5 @@
+part of 'widget.dart';
+
 enum PackageImage {
   Image_1,
   Image_2,

@@ -1,3 +1,6 @@
+Custom_Empty widget is flutter custom widget which is designed to notify user about some event.
+
+
 ## empty_Widget  [![pub package](https://img.shields.io/pub/v/empty_widget?color=blue)](https://pub.dev/packages/empty_widget) [![GitHub stars](https://img.shields.io/github/stars/Thealphamerc/empty_widget?style=social)](https://github.com/login?return_to=%2FTheAlphamerc%2Fempty_widget)
 
 ## Getting Started
@@ -5,15 +8,15 @@
 
 ```yaml
 dependencies:
-...
-  empty_widget: ^0.0.1-hotfix # such as version, you need use the latest version of pub.
-...
+  empty_widget: ^0.0.2
 ```
 
 ### 2. Import library in dart file
 
 ```dart
-import 'package:empty_widget.dart';
+
+import 'package:empty_widget/empty_widget.dart';
+
 ```
 
 Add image to assets.
@@ -92,39 +95,34 @@ class _MyHomePageState extends State<MyHomePage> {
 }
 ```
 
-### Parameters and Value
-#####  Images
+## Parameters and Value
+###  Images
 Image path can be assets image or null.
 
-#### title
+### title
 title can be string or null
 
-#### subTitle
+### subTitle
 subTitle can be string or null
 
-#### packageImage
+### packageImage
 Available image assets in package ```Type``` : PackageImage
-###### Values
+#### Values
 * PackageImage.Image_1
 * PackageImage.Image_2
 * PackageImage.Image_3
 * PackageImage.Image_4
 
-#### titleTextStyle
+### titleTextStyle
 Text style of Title
 
-#### subtitleTextStyle
+### subtitleTextStyle
 Text style of Subtitle
 
 ## Download App
 <a href="https://github.com/TheAlphamerc/empty_widget/releases/download/v0.0.1/app-release.apk"><img src="https://playerzon.com/asset/download.png" width="200"></img></a>
 
 
-## Credits
-Developed by sonu.sharma045@gmail.com
-
-## Contributing
-Feel free to help
 
 ## Screenshots
 
@@ -132,5 +130,12 @@ Screenshots               |  Screenshots  |  Screenshots |  Screenshots
 :-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
 ![](https://github.com/TheAlphamerc/empty_widget/blob/master/screenshots/screen1.jpg?raw=true)|![](https://github.com/TheAlphamerc/empty_widget/blob/master/screenshots/screen2.jpg?raw=true)|![](https://github.com/TheAlphamerc/empty_widget/blob/master/screenshots/screen3.jpg?raw=true) |![](https://github.com/TheAlphamerc/empty_widget/blob/master/screenshots/screen4.jpg?raw=true)
 
+
+
+## Credits
+Developed by sonu.sharma045@gmail.com
+
+## Contributing
+Feel free to help
 
 

@@ -35,20 +35,20 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Container(
         alignment: Alignment.center,
         child: EmptyListWidget(
-            image: null,
-            packageImage: PackageImage.Image_1,
-            title: 'Title here',
-            subTitle: 'Some text  here',
-            titleTextStyle: Theme.of(context)
-                .typography
-                .dense
-                .headline5
-                .copyWith(color: Color(0xff9da9c7)),
-            subtitleTextStyle: Theme.of(context)
-                .typography
-                .dense
-                .bodyText1
-                .copyWith(color: Color(0xffabb8d6))),
+          image: null,
+          packageImage: PackageImage.Image_1,
+          title: 'No Notification',
+          subTitle: 'No  notification available yet',
+          titleTextStyle: TextStyle(
+            fontSize: 22,
+            color: Color(0xff9da9c7),
+            fontWeight: FontWeight.w500,
+          ),
+          subtitleTextStyle: TextStyle(
+            fontSize: 14,
+            color: Color(0xffabb8d6),
+          ),
+        ),
       ),
     );
   }
