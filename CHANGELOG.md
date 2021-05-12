@@ -1,3 +1,6 @@
+## [0.0.3] 12 May 2021
+* Migrate to Null Safty
+* Rename EmptyListWidget to EmptyWidget
 ## [0.0.2] 18 Apr 2021 
  * Add code documentation
  * Code refactor

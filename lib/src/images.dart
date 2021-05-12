@@ -1,5 +1,6 @@
 part of 'widget.dart';
 
+// nodoc
 enum PackageImage {
   Image_1,
   Image_2,
@@ -13,14 +14,14 @@ const _$PackageImageTypeMap = {
   PackageImage.Image_4: 'assets/images/im_emptyIcon_3.png',
 };
 
-extension convert on PackageImage {
-  String encode() => _$PackageImageTypeMap[this];
+extension convert on PackageImage? {
+  String? encode() => _$PackageImageTypeMap[this!];
 
-  PackageImage key(String value) => decodePackageImage(value);
+  PackageImage? key(String value) => decodePackageImage(value);
 
-  PackageImage decodePackageImage(String value) {
+  PackageImage? decodePackageImage(String value) {
     return _$PackageImageTypeMap.entries
-        .singleWhere((element) => element.value == value, orElse: () => null)
-        ?.key;
+        .singleWhere((element) => element.value == value)
+        .key;
   }
 }

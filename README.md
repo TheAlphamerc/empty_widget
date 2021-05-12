@@ -8,7 +8,7 @@ Custom_Empty widget is flutter custom widget which is designed to notify user ab
 
 ```yaml
 dependencies:
-  empty_widget: ^0.0.2
+  empty_widget: ^0.0.3
 ```
 
 ### 2. Import library in dart file
@@ -19,19 +19,11 @@ import 'package:empty_widget/empty_widget.dart';
 
 ```
 
-Add image to assets.
 
-```yaml
-flutter:
-  assets:
-    - assets/images/userIcon.png
-```
-
-
-### 3. Use of EmptyListWidget
+### 3. Use of EmptyWidget
 
 ```dart
- EmptyListWidget(
+ EmptyWidget(
    image: null,
    packageImage: PackageImage.Image_1,
    title: 'No Notification',
@@ -85,7 +77,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Container(
         alignment: Alignment.center,
-        child: EmptyListWidget(
+        child: EmptyWidget(
           image: null,
           packageImage: PackageImage.Image_1,
           title: 'No Notification',
@@ -107,30 +99,16 @@ class _MyHomePageState extends State<MyHomePage> {
 ```
 
 ## Parameters and Value
-###  Images
-Image path can be assets image or null.
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| title | `string` |  Set text for title |
+| subTitle | `string` |  Set text for subtitle |
+| image | `string` | Display images from project assets |
+| packageImage | `PackageImage`| Display image from package assets |
+| titleTextStyle| `TextStyle` |  Set text style for title|
+| subtitleTextStyle| `TextStyle` | Set text style for subtitle|
 
-### title
-title can be string or null
-
-### subTitle
-subTitle can be string or null
-
-### packageImage
-Available image assets in package ```Type``` : PackageImage
-#### Values
-* PackageImage.Image_1
-* PackageImage.Image_2
-* PackageImage.Image_3
-* PackageImage.Image_4
-
-### titleTextStyle
-Text style of Title
-
-### subtitleTextStyle
-Text style of Subtitle
-
-## Download App
+## Download Example App
 <a href="https://github.com/TheAlphamerc/empty_widget/releases/download/v0.0.1/app-release.apk"><img src="https://playerzon.com/asset/download.png" width="200"></img></a>
 
 

@@ -6,10 +6,10 @@ part 'images.dart';
 
 /// {@tool snippet}
 ///
-/// This example shows how to use [EmptyListWidget]
+/// This example shows how to use [EmptyWidget]
 ///
 ///  ``` dart
-/// EmptyListWidget(
+/// EmptyWidget(
 ///   image: null,
 ///   packageImage: PackageImage.Image_1,
 ///   title: 'No Notification',
@@ -27,8 +27,8 @@ part 'images.dart';
 /// ```
 /// {@end-tool}
 
-class EmptyListWidget extends StatefulWidget {
-  EmptyListWidget(
+class EmptyWidget extends StatefulWidget {
+  EmptyWidget(
       {this.title,
       this.subTitle,
       this.image,
@@ -36,45 +36,45 @@ class EmptyListWidget extends StatefulWidget {
       this.titleTextStyle,
       this.packageImage});
 
-  /// Display images from project asserts
-  final String image;
+  /// Display images from project assets
+  final String? image; /*!*/
 
-  /// Display image from package asserts
-  final PackageImage packageImage;
+  /// Display image from package assets
+  final PackageImage? packageImage; /*!*/
 
-  /// Display text for subTitle
-  final String subTitle;
+  /// Set text for subTitle
+  final String? subTitle; /*!*/
 
-  /// Text style for subTitle
-  final TextStyle subtitleTextStyle;
+  /// Set text style for subTitle
+  final TextStyle? subtitleTextStyle; /*!*/
 
-  /// Display text for title
-  final String title;
+  /// Set text for title
+  final String? title; /*!*/
 
   /// Text style for title
-  final TextStyle titleTextStyle;
+  final TextStyle? titleTextStyle; /*!*/
 
   @override
   State<StatefulWidget> createState() => _EmptyListWidgetState();
 }
 
-class _EmptyListWidgetState extends State<EmptyListWidget>
+class _EmptyListWidgetState extends State<EmptyWidget>
     with TickerProviderStateMixin {
   // String title, subTitle,image = 'assets/images/emptyImage.png';
 
-  AnimationController _backgroundController;
+  late AnimationController _backgroundController;
 
-  Animation _imageAnimation;
-  AnimationController _imageController;
-  PackageImage _packageImage;
-  TextStyle _subtitleTextStyle;
-  TextStyle _titleTextStyle;
-  AnimationController _widgetController;
+  late Animation _imageAnimation; /*!*/
+  AnimationController? _imageController; /*!*/
+  PackageImage? _packageImage; /*!*/
+  TextStyle? _subtitleTextStyle; /*!*/
+  TextStyle? _titleTextStyle; /*!*/
+  late AnimationController _widgetController; /*!*/
 
   @override
   void dispose() {
     _backgroundController.dispose();
-    _imageController.dispose();
+    _imageController!.dispose();
     _widgetController.dispose();
     super.dispose();
   }
@@ -98,7 +98,7 @@ class _EmptyListWidgetState extends State<EmptyListWidget>
       vsync: this,
     )..repeat();
     _imageAnimation = Tween<double>(begin: 0, end: 10).animate(
-      CurvedAnimation(parent: _imageController, curve: Curves.linear),
+      CurvedAnimation(parent: _imageController!, curve: Curves.linear),
     );
     super.initState();
   }
@@ -107,13 +107,13 @@ class _EmptyListWidgetState extends State<EmptyListWidget>
     if (_imageController == null) {
       return;
     }
-    if (_imageController.isCompleted) {
+    if (_imageController!.isCompleted) {
       setState(() {
-        _imageController.reverse();
+        _imageController!.reverse();
       });
     } else {
       setState(() {
-        _imageController.forward();
+        _imageController!.forward();
       });
     }
   }
@@ -124,7 +124,7 @@ class _EmptyListWidgetState extends State<EmptyListWidget>
       flex: 3,
       child: AnimatedBuilder(
         animation: _imageAnimation,
-        builder: (BuildContext context, Widget child) {
+        builder: (BuildContext context, Widget? child) {
           return Transform.translate(
             offset: Offset(
                 0,
@@ -137,7 +137,7 @@ class _EmptyListWidgetState extends State<EmptyListWidget>
         child: Padding(
           padding: EdgeInsets.all(10),
           child: Image.asset(
-            _packageImage.encode(),
+            _packageImage.encode()!,
             fit: BoxFit.contain,
             package: isPackageImage ? 'empty_widget' : null,
           ),
@@ -166,7 +166,7 @@ class _EmptyListWidgetState extends State<EmptyListWidget>
     );
   }
 
-  Widget _shell({Widget child}) {
+  Widget _shell({Widget? child}) {
     return LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
       if (constraints.maxHeight > constraints.maxWidth) {
@@ -176,7 +176,7 @@ class _EmptyListWidgetState extends State<EmptyListWidget>
           child: child,
         );
       } else {
-        return child;
+        return child!;
       }
     });
   }
@@ -186,13 +186,13 @@ class _EmptyListWidgetState extends State<EmptyListWidget>
         Theme.of(context)
             .typography
             .dense
-            .headline5
+            .headline5!
             .copyWith(color: Color(0xff9da9c7));
     _subtitleTextStyle = widget.subtitleTextStyle ??
         Theme.of(context)
             .typography
             .dense
-            .bodyText1
+            .bodyText1!
             .copyWith(color: Color(0xffabb8d6));
     _packageImage = widget.packageImage;
 
