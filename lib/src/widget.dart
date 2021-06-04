@@ -66,7 +66,7 @@ class _EmptyListWidgetState extends State<EmptyWidget>
 
   late Animation _imageAnimation; /*!*/
   AnimationController? _imageController; /*!*/
-  PackageImage? _packageImage; /*!*/
+  late PackageImage? _packageImage; /*!*/
   TextStyle? _subtitleTextStyle; /*!*/
   TextStyle? _titleTextStyle; /*!*/
   late AnimationController _widgetController; /*!*/
@@ -137,7 +137,7 @@ class _EmptyListWidgetState extends State<EmptyWidget>
         child: Padding(
           padding: EdgeInsets.all(10),
           child: Image.asset(
-            _packageImage.encode()!,
+            isPackageImage ? _packageImage.encode()! : widget.image!,
             fit: BoxFit.contain,
             package: isPackageImage ? 'empty_widget' : null,
           ),
@@ -196,6 +196,8 @@ class _EmptyListWidgetState extends State<EmptyWidget>
             .copyWith(color: Color(0xffabb8d6));
     _packageImage = widget.packageImage;
 
+    bool anyImageProvided = widget.image == null && _packageImage == null;
+
     return FadeTransition(
       opacity: _widgetController,
       child: Container(
@@ -219,11 +221,13 @@ class _EmptyListWidgetState extends State<EmptyWidget>
                     mainAxisAlignment: MainAxisAlignment.center,
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
-                      Expanded(
-                        flex: 1,
-                        child: Container(),
-                      ),
-                      _imageWidget(),
+                      anyImageProvided
+                          ? SizedBox()
+                          : Expanded(
+                              flex: 1,
+                              child: Container(),
+                            ),
+                      anyImageProvided ? SizedBox() : _imageWidget(),
                       Column(
                         children: <Widget>[
                           CustomText(
@@ -244,10 +248,12 @@ class _EmptyListWidgetState extends State<EmptyWidget>
                               textAlign: TextAlign.center)
                         ],
                       ),
-                      Expanded(
-                        flex: 1,
-                        child: Container(),
-                      )
+                      anyImageProvided
+                          ? SizedBox()
+                          : Expanded(
+                              flex: 1,
+                              child: Container(),
+                            )
                     ],
                   ),
                 );

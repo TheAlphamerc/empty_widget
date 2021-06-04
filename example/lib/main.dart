@@ -35,7 +35,11 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Container(
         alignment: Alignment.center,
         child: EmptyWidget(
-          image: null,
+          // Image from project assets
+          image: "assets/images/im_emptyIcon_1.png",
+
+          /// Image from package assets
+          /// Uncomment below line to use package assets
           packageImage: PackageImage.Image_1,
           title: 'No Notification',
           subTitle: 'No  notification available yet',
