@@ -1,3 +1,5 @@
+## [0.0.4] 04 Jun 2021
+* 🐛 (fix) Unable to use project assets. Ref -> https://github.com/TheAlphamerc/empty_widget/issues/5 
 ## [0.0.3] 12 May 2021
 * Migrate to Null Safty
 * Rename EmptyListWidget to EmptyWidget
