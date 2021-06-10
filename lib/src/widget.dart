@@ -28,13 +28,15 @@ part 'images.dart';
 /// {@end-tool}
 
 class EmptyWidget extends StatefulWidget {
-  EmptyWidget(
-      {this.title,
-      this.subTitle,
-      this.image,
-      this.subtitleTextStyle,
-      this.titleTextStyle,
-      this.packageImage});
+  EmptyWidget({
+    this.title,
+    this.subTitle,
+    this.image,
+    this.subtitleTextStyle,
+    this.titleTextStyle,
+    this.packageImage,
+    this.hideBackgroundAnimation = false,
+  });
 
   /// Display images from project assets
   final String? image; /*!*/
@@ -53,6 +55,11 @@ class EmptyWidget extends StatefulWidget {
 
   /// Text style for title
   final TextStyle? titleTextStyle; /*!*/
+
+  /// Hides the background circular ball animation
+  ///
+  /// By default `false` value is set
+  final bool? hideBackgroundAnimation;
 
   @override
   State<StatefulWidget> createState() => _EmptyListWidgetState();
@@ -206,10 +213,11 @@ class _EmptyListWidgetState extends State<EmptyWidget>
           child: Stack(
             alignment: Alignment.center,
             children: <Widget>[
-              RotationTransition(
-                child: _imageBackground(),
-                turns: _backgroundController,
-              ),
+              if (!widget.hideBackgroundAnimation!)
+                RotationTransition(
+                  child: _imageBackground(),
+                  turns: _backgroundController,
+                ),
               LayoutBuilder(
                   builder: (BuildContext context, BoxConstraints constraints) {
                 return Container(

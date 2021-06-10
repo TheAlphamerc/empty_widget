@@ -1,3 +1,5 @@
+## [0.0.4] 10 Jun 2021
+* Add `hideBackgroundAnimation` property to hide background  circular animation
 ## [0.0.4] 04 Jun 2021
 * 🐛 (fix) Unable to use project assets. Ref -> https://github.com/TheAlphamerc/empty_widget/issues/5 
 ## [0.0.3] 12 May 2021

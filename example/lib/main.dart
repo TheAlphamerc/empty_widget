@@ -52,6 +52,8 @@ class _MyHomePageState extends State<MyHomePage> {
             fontSize: 14,
             color: Color(0xffabb8d6),
           ),
+          // Uncomment below statement to hide background animation
+          // hideBackgroundAnimation: true,
         ),
       ),
     );
