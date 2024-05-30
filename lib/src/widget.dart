@@ -193,13 +193,13 @@ class _EmptyListWidgetState extends State<EmptyWidget>
         Theme.of(context)
             .typography
             .dense
-            .headline5!
+            .headlineSmall!
             .copyWith(color: Color(0xff9da9c7));
     _subtitleTextStyle = widget.subtitleTextStyle ??
         Theme.of(context)
             .typography
             .dense
-            .bodyText1!
+            .bodyLarge!
             .copyWith(color: Color(0xffabb8d6));
     _packageImage = widget.packageImage;
 
