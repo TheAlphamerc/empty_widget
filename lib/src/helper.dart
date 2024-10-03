@@ -39,6 +39,7 @@ class _CustomTextState extends State<CustomText> {
     if (widget.context != null && widget.style != null) {
       var font = widget.style!.fontSize == null
           ? Theme.of(context).textTheme.bodyMedium!.fontSize!
+
           : widget.style!.fontSize!;
       style = widget.style!.copyWith(
           fontSize:
