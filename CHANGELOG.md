@@ -1,3 +1,5 @@
+## [0.0.6] 31 May 2024
+* Migrated from Flutter 2 to Flutter 3 
 ## [0.0.4] 10 Jun 2021
 * Add `hideBackgroundAnimation` property to hide background  circular animation
 ## [0.0.4] 04 Jun 2021
